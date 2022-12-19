@@ -1,0 +1,54 @@
+
+<!-- Default form login -->
+<button type="button" routerLink="/admin_dashboard" class="btn btn-primary">Back to dashboard</button>
+
+<form [formGroup]="categoryForm" (ngSubmit)="addCategory()" class="text-center border border-light p-5" style="margin-left: 20%; margin-right: 20%;" >
+
+    <p class="h4 mb-4">add category</p>
+
+    <!-- Email -->
+    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="category" formControlName="category">
+    <div class="error" class="text-danger"
+    *ngIf="categoryForm.controls['category'].hasError('required') && categoryForm.controls['category'].touched
+    && categoryForm.controls['category'].hasError('pattern')">
+     valid category required</div>
+    
+
+    <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            
+        </div>
+        
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">add</button>
+
+    
+    
+</form>
+
+
+<div class="text-center" style="margin-left: 30%;
+margin-right: 30%;">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.</th>
+        <th scope="col">Event Category</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of eventCategoryList;let i = index">
+        <th scope="row">{{i+1}}</th>    
+        <td>{{category.category}}</td>
+        <td>
+            <button type="button" routerLink="/edit_event_category/{{category.category}}" class="btn btn-warning">Edit</button> &nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="delete(category.category)">Delete</button>    
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

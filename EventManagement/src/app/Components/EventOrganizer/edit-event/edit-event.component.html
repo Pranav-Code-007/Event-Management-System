@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-light  bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light">Event Management System</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link btn btn-primary btn-sm text-light" aria-current="page" href="#"routerLink="/addEvent">Add Event</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link btn btn-primary text-light" href="#"routerLink="/organizer_account_show_events">View All Events</a>
+            </li>
+                    
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="vh-100 gradient-custom bg-secondary">
+    <div class="container py-5 h-100 ">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration bg-dark" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light row justify-content-center align-items-center h-100">EDIT EVENT</h3>
+
+                <form [formGroup]="editEventForm" (ngSubmit)="editEvent()">
+                    
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light row justify-content-center align-items-center h-100">Event Name</label>
+                                <input type="text" name="eventName" class="form-control form-control-lg" formControlName="eventName" [(ngModel)]="event.eventName" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light row justify-content-center align-items-center h-100">Event Category</label>
+                                <input type="text" name="eventCategory" class="form-control form-control-lg" formControlName="eventCategory" [(ngModel)]="event.eventCategory" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light row justify-content-center align-items-center h-100">Event Venue</label>
+                                <input type="text" name="eventVenue" class="form-control form-control-lg" formControlName="eventVenue" [(ngModel)]="event.eventVenue" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                              <label class="form-label text-light row justify-content-center align-items-center h-100">Event Date</label>
+                              <input type="date" name="eventDate" class="form-control form-control-lg" formControlName="eventDate" [(ngModel)]="event.eventDate"/>
+                          </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                              <label class="form-label text-light row justify-content-center align-items-center h-100">Event Time</label>
+                              <input type="text" name="eventTime" class="form-control form-control-lg" formControlName="eventTime" [(ngModel)]="event.eventTime" />
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label text-light row justify-content-center align-items-center h-100">Event Price</label>
+                            <input type="number" name="eventPrice" class="form-control form-control-lg" formControlName="eventPrice" [(ngModel)]="event.eventPrice" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label text-light row justify-content-center align-items-center h-100">Event Description</label>
+                            <input type="text" name="eventDescription" class="form-control form-control-lg" formControlName="eventDescription" [(ngModel)]="event.eventDescription"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="mt-4 pt-2 row justify-content-center align-items-center">
+                        <input class="btn btn-primary"  value="Update" type="submit"/> 
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,27 @@
+<p>event-category-update works!</p>
+<form [formGroup]="categoryForm" (ngSubmit)="updateCategory()" class="text-center border border-light p-5" style="margin-left: 20%; margin-right: 20%;" >
+
+    <p class="h4 mb-4">update category</p>
+
+    <!-- Email -->
+    <input type="text"  class="form-control mb-4" [(ngModel)]="category" formControlName="event_category">
+    <div class="error" class="text-danger"
+    *ngIf="categoryForm.controls['event_category'].hasError('required') && categoryForm.controls['event_category'].touched
+    && categoryForm.controls['event_category'].hasError('pattern')">
+     valid category required</div>
+    
+
+    <div class="d-flex justify-content-around">
+        <div>
+            
+            
+        </div>
+        
+    </div>
+
+    
+    <button class="btn btn-info btn-block my-4" type="submit">update</button>
+
+    
+    
+</form>

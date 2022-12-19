@@ -1,0 +1,46 @@
+<button type="button" routerLink="/logout" class="btn btn-primary">Logout</button>
+<br><br><br><br>
+<a routerLink="/user_account_profile" class="btn btn-primary"> Edit Profile</a><br><br><br>
+<button class="btn btn-secondary" routerLink="/user_account_show_events" class="btn" >Show All Events</button>
+
+<section class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center mb-5">
+                <h1 class="display-4"></h1>
+                <p class="lead"></p>
+            </div>
+        </div>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let booking of bookingList">
+              <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+                <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                <div class="card-img-overlay d-flex flex-column">
+                  <div class="card-body">
+                   
+                    <h1>{{booking.event.name}}</h1>
+                    <h4 class="card-title mt-0 "><h3 class="text-white" >{{booking.event.description}}</h3></h4>
+                    <h5><i class="far fa-clock"></i> Organizer - {{booking.event.user.name}}</h5>
+                    <h5>date - {{booking.event.date}}</h5>
+                    <h5>time - {{booking.event.time}}</h5>
+                    <h5>venue - {{booking.event.venue}}</h5>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                      <div class="media-body">
+                        <h6 class="my-0 text-white d-block">Price</h6>
+                        <h2><span>&#8377;</span> {{booking.event.price}}</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <h2><button type="button" class="btn btn-outline-light">status : {{booking.status}}</button>  &nbsp;  &nbsp;  &nbsp; <button type="button" (click)="cancelBooking(booking.bookingId)" class="btn btn-outline-danger">Cancel</button></h2>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+
+
+    </div>
+</section>

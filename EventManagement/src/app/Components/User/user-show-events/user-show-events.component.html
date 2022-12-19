@@ -1,0 +1,115 @@
+
+<button type="button" routerLink="/logout" class="btn btn-primary">Logout</button>
+<br><br><br><br>
+<button type="button" routerLink="/feedback" class="btn btn-primary">Feedback</button>
+<br><br><br><br>
+<div class="td">
+  <a href="#" style="right: 300px; position: absolute;" routerLink="/user_account_profile" >
+    <img style="border-radius: 50%;width: 50px;
+    height: 50px; " src="https://imagizer.imageshack.com/img921/3072/rqkhIb.jpg">
+  </a>
+</div>
+<button class="btn btn-secondary" routerLink="/user_account_booked_events" >Show Booked Events</button>
+<section class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center mb-5">
+          <h1 class="display-4"></h1>
+          <!-- <p class="lead"> -->
+            
+        --------------------
+
+
+        <!-- <form class="form-inline"> -->
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" [(ngModel)]="eventToBeSearched" type="text" placeholder="Search"
+              aria-label="Search">
+          <!-- </form> -->
+
+
+
+        --------------------
+        
+        
+        <!-- </p> -->
+        </div>
+      </div>
+
+
+      <div class="row">
+      <ng-container *ngIf="( eventsList | eventSearch : eventToBeSearched) as result">
+        
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let event of result | eventSearch:eventToBeSearched">
+    
+              <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+                <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                <div class="card-img-overlay d-flex flex-column">
+                  <div class="card-body">
+                    
+                    <h1>{{event.name}}</h1>
+                    <h4 class="card-title mt-0 "><h3 class="text-white" >{{event.description}}</h3></h4>
+                    <h5><i class="far fa-clock"></i> Organizer - {{event.user.name}}</h5>
+                    <h5>date - {{event.date}}</h5>
+                    <h5>time - {{event.time}}</h5>
+                    <h5>venue - {{event.venue}}</h5>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                
+                      <div class="media-body">
+                        <h6 class="my-0 text-white d-block">Price</h6>
+                        <h2><span>&#8377;</span> {{event.price}}</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <h2><button type="button" class="btn btn-outline-light" (click)="bookEvent(event)">Book Event</button></h2>
+                </div>
+              </div>
+            </div>
+      
+          
+        
+        
+        <p *ngIf="result.length === 0">No Result</p>  
+      </ng-container>
+    </div>
+
+
+
+
+
+      <!-- <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let event of eventsList | search:eventToBeSearched">
+
+          <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+            <div class="card-img-overlay d-flex flex-column">
+              <div class="card-body">
+                
+                <h1>{{event.name}}</h1>
+                <h4 class="card-title mt-0 "><h3 class="text-white" >{{event.description}}</h3></h4>
+                <h5><i class="far fa-clock"></i> Organizer - {{event.user.name}}</h5>
+                <h5>date - {{event.date}}</h5>
+                <h5>time - {{event.time}}</h5>
+                <h5>venue - {{event.venue}}</h5>
+              </div>
+              <div class="card-footer">
+                <div class="media">
+            
+                  <div class="media-body">
+                    <h6 class="my-0 text-white d-block">Price</h6>
+                    <h2><span>&#8377;</span> {{event.price}}</h2>
+                  </div>
+                </div>
+              </div>
+              <h2><button type="button" class="btn btn-outline-light" (click)="bookEvent(event)">Book Event</button></h2>
+            </div>
+          </div>
+        </div>
+  
+      </div> -->
+  
+    
+
+    </div>
+  </section>

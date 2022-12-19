@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg navbar-light  bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light">Event Management System</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link btn btn-primary btn-sm text-light" aria-current="page" href="#"routerLink="/addEvent">Add Event</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link btn btn-primary text-light" href="#"routerLink="/organizer_account_show_events">View All Events</a>
+            </li>
+                    
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <section class="vh-100 gradient-custom bg-secondary">
+    <div class="container py-5 h-100 ">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration bg-dark" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light row justify-content-center align-items-center h-100">ADD EVENT</h3>
+
+                <form [formGroup]="addeventForm" (ngSubmit)="addEvent()">
+                    
+
+                    <div class="row">
+                       
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Name</label>
+                                <input type="text" class="form-control form-control-lg" formControlName="eventName" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Category</label>
+                                <input type="text" class="form-control form-control-lg" formControlName="eventCategory" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Venue</label>
+                                <input type="text" class="form-control form-control-lg" formControlName="eventVenue" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Date</label>
+                                <input type="date" data-date="" data-date-format="YYYY MM DD" class="form-control form-control-lg" formControlName="eventDate"/>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Time</label>
+                                <input type="text" class="form-control form-control-lg" formControlName="eventTime" />
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Price</label>
+                                <input type="number" class="form-control form-control-lg" formControlName="eventPrice" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label text-light">Event Description</label>
+                                <input type="text" class="form-control form-control-lg" formControlName="eventDescription" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-2 row justify-content-center align-items-center">
+                        <input class="btn btn-primary"  value="Add Event" type="submit"/> 
+                    </div>
+
+                    <div class="mt-4 pt-2 text-success row justify-content-center align-items-center">
+                        {{ message}}
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

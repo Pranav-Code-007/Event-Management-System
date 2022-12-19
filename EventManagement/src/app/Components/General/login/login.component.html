@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" routerLink="/home">Events</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="#" routerLink="/login">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="#" routerLink="/signup">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
+    <style>
+        .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+                border-top-right-radius: 0;
+            }
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+    </style>
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-4 d-none d-lg-flex">
+                <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                    class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body py-5 px-md-5">
+<h6>{{error}}</h6>
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form2Example1" formControlName="email" class="form-control" />
+                            <label class="form-label" for="form2Example1">Email address</label>
+                            <div class="error" class="text-danger"
+                                *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
+                                Email is
+                                required</div>
+                                <div class="error" class="text-danger"
+                                *ngIf="loginForm.controls['email'].hasError('pattern') && loginForm.controls['email'].touched">
+                                Email is
+                                invalid</div>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="form2Example2" formControlName="password" class="form-control" />
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <div class="error" class="text-danger"
+                                *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+                                Password is required</div>
+                                <div class="error" class="text-danger"
+                                *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.controls['password'].touched">
+                                Password is too short</div>
+                        </div>
+
+                        <div class="form-outline mb-4" >
+                            <option>Please seletc your role</option>
+                        <select class="custom-select mb-3" formControlName="role">
+                            
+                            <option *ngFor="let role of roleList" [ngValue]="role">
+                                {{ role }}
+                            </option>
+                        </select>
+                        <div class="error" class="text-danger"
+                                *ngIf="loginForm.controls['role'].hasError('required') && loginForm.controls['role'].touched">
+                                role is required</div>
+</div>
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+
+
+                            <div class="col">
+                                <!-- Simple link -->
+                                <p class="mb-0">Don't have an account? <a href="#!" class="text-black-50 fw-bold">Sign
+                                        Up</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign In">
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->

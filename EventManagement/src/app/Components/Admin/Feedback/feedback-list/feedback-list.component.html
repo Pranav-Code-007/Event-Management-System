@@ -1,0 +1,22 @@
+<button type="button" routerLink="/admin_dashboard" class="btn btn-primary">Back to dashboard</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Feedback</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+  
+      <tr *ngFor="let feedback of feedbackListt; let i=index" class="table-primary">
+        <th scope="row">{{i}}</th>
+        <td>{{feedback.feedback}}</td>
+        <td>{{feedback.rating}}</td>
+      </tr>
+      
+      
+      
+    </tbody>
+  </table>

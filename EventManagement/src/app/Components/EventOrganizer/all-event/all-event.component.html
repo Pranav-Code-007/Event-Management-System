@@ -1,0 +1,62 @@
+<button type="button" routerLink="/logout" class="btn btn-primary">Logout</button>
+<br><br><br><br>
+<nav class="navbar navbar-expand-lg navbar-light  bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light">Event Management System</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link btn btn-primary btn-sm text-light" aria-current="page" href="#"routerLink="/addEvent">Add Event</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link btn btn-primary text-light" href="#"routerLink="/organizer_account_show_events">View All Events</a>
+            </li>
+                    
+          </ul>
+      </div>
+    </div>
+  </nav>
+<div  class="container mt-5">
+    <a class="btn btn-success" routerLink="/addEvent/">Add Event</a>
+</div>
+<!-- <div *ngIf="events.length!=0; else block"> -->
+    <div class="container mt-5">
+        <div>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                    
+                    <th>Event Name</th>
+                    <th>Event Category</th>
+                    <th>Event Venue</th>
+                    <th>Event Date</th>
+                    <th>Event Time </th>
+                    <th>Event Price</th>
+                    <th>Description</th>
+
+
+                    <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let event of events">
+                   
+                    <td>{{event.eventName}}</td>
+                    <td>{{event.eventCategory}}</td>
+                    <td>{{event.eventVenue}}</td>
+                    <td>{{event.eventDate}}</td>
+                    <td>{{event.eventTime}}</td>
+                    <td>{{event.eventPrice}}</td>
+                    <td>{{event.Description}}</td>
+                    <td><a class="btn btn-primary" routerLink="/updateEvent/{{event.eventId}}">Edit</a></td>
+                    <td><a class="btn btn-danger" (click)="deleteEvent(event.eventId)">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-primary">Back</a>
+    </div>  
+  
+
+
+<ng-template #block>No Record Found</ng-template>

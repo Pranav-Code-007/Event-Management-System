@@ -1,0 +1,26 @@
+<button type="button" routerLink="/admin_dashboard" class="btn btn-primary">Back to Dashboard</button> <br><br><br>
+<button type="button" routerLink="/logout" class="btn btn-primary">Logout</button><br><br><br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Event Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookingList;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{booking.user.name}}</td>
+        <td>{{booking.event.name}}</td>
+        <td>{{booking.status}}</td>
+        <td><button type="button" (click)="setStatusApproved(booking.bookingId)" class="btn btn-primary">Approv</button> &nbsp;&nbsp;
+            <button type="button" (click)="setStatusPending(booking.bookingId)" class="btn btn-primary">Pending</button></td>
+      </tr>
+      
+      
+    </tbody>
+  </table>

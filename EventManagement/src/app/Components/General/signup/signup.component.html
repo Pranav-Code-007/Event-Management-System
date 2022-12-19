@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" routerLink="/home">Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link " href="#" routerLink="/login">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="#" routerLink="/signup">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registration Form</p>
+
+
+                <form [formGroup]="registerForm" (ngSubmit)="register()" class="mx-1 mx-md-4">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+
+                      <input type="text" id="name" class="form-control" formControlName="name" />
+                      <label class="form-label" for="name">Your Name</label>
+                      <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">
+                        name is required</div>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="email" class="form-control" formControlName="email" />
+                      <label class="form-label" for="email">Your Email</label>
+                      <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">
+                        Email is required</div>
+                        <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['email'].hasError('pattern') && registerForm.controls['email'].touched">
+                        Email is Invalid</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+
+                      <input type="password" id="password" class="form-control" formControlName="password" />
+                      <label class="form-label" for="password" >Password</label>
+                      <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">
+                        Password is required</div>
+
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+
+                      <input type="password" class="form-control" formControlName="confirm_password" />
+                      <label class="form-label" for="password">Repeat your password</label>
+                      <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['confirm_password'].touched&&  registerForm.controls['confirm_password'].hasError('required') && registerForm.controls['confirm_password'].dirty">
+                        Password is required</div>
+                    </div>
+
+                    <div class="error" class="text-danger"
+                    *ngIf="registerForm.controls['confirm_password'].touched && registerForm.controls['confirm_password'].hasError('confirmedValidator') ">
+                    Password is not matching</div>
+                </div>
+
+                  
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" formControlName="mobile_number"  />
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <div class="error" class="text-danger"
+                        *ngIf="registerForm.controls['mobile_number'].hasError('required') && registerForm.controls['mobile_number'].touched">
+                        mobile_number is required</div>
+
+
+                    </div>
+                  </div>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Choose your role </mat-label>
+                    <select matNativeControl formControlName="role">
+                      <option value="user" selected>User</option>
+                      <option value="organizer">Organizer</option>
+                    </select>
+                  </mat-form-field>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <input type="submit" value="Register" class="btn btn-primary btn-lg">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
